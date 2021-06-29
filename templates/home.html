@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="row d-flex justify-content-around my-4">
+<div class="container pb-5">
+    <div class="row d-flex justify-content-around my-4 ">
         {% for productos in primeros_productos %}
-            <div class="card" style="width: 18rem;">
+            <div class="card abajo" style="width: 18rem;">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ productos.titulo }}</h5>
                     <a href="#">
@@ -19,7 +19,7 @@
             {% endif %}
         {% endfor%}
     </div>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5 abajo">
         <h2 class="text-center my-3">MÁS PRODUCTOS</h2>      
             {% for productos2 in segundos_productos %}
                 <p>

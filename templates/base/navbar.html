@@ -1,5 +1,6 @@
-<!-- {% url 'home' as home_url %}
-{% url 'contact' as contact_url %}
+{% url 'productos:home' as home %}
+{% url 'productos:acerca' as acerca %}
+<!--{% url 'contact' as contact_url %}
 {% url 'products:list' as product_list_url %}
 {% url 'login' as login_url %}
 {% url 'register' as register_url %}
@@ -14,7 +15,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item me-5">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="{{ home }}">Home</a>
           </li>
           <li class="nav-item dropdown me-5">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,7 +28,7 @@
             </ul>
           </li>
           <li class="nav-item me-5">
-            <a class="nav-link" href="#">Acerca de</a>
+            <a class="nav-link" href="{{ acerca }}">Acerca de</a>
           </li>
           <li class="nav-item me-5">
             <a class="nav-link" href="#">Contacto</a>

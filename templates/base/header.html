@@ -1,7 +1,8 @@
+{% url 'productos:home' as home %}
 {% load static %}
 <header class="navbar navbar-expand-lg navbar-dark bg-dark mb-0">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="{{ home }}">
             <img src="{{ MEDIA_URL }}/imagenes/JKSA.png" alt="" width="108" height="86" class="d-inline-block align-text-top"/>
           </a>
    

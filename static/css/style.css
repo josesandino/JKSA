@@ -1,7 +1,7 @@
 
 html { height: 100%; }
 body {
-    min-height:205%; 
+    min-height:100%; 
     position:relative; 
     padding-bottom:[footer-height] 
 }
@@ -18,4 +18,13 @@ nav {
   color: darkgray!important;
   font-weight: bold;
 }
-
+@media (max-width: 768px) {
+  .abajo{
+    padding-bottom: 15%;
+    margin-bottom: 10%;
+  }
+  footer{
+    flex-direction: column;
+    align-items: center;
+  }  
+}

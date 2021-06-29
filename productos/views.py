@@ -13,3 +13,6 @@ def home(request):
         'lista_categorias': categorias,
     }
     return render(request, "home.html", context)
+
+def acerca(request):
+    return render(request, "acerca.html", {})
