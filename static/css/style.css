@@ -1,11 +1,21 @@
 
-footer {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: space-evenly;
+html { height: 100%; }
+body {
+    min-height:205%; 
+    position:relative; 
+    padding-bottom:[footer-height] 
 }
-footer p {
-  color: white;
+footer { 
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute; 
+    left: 0 ; right: 0; bottom: 0; 
+    height:[footer-height] 
+}
+footer, 
+header, 
+nav {
+  color: darkgray!important;
   font-weight: bold;
 }
+

@@ -2,6 +2,32 @@
 {% load static %}
 
 {% block content %}
-
+<div class="container">
+    <div class="row d-flex justify-content-around my-4">
+        {% for productos in primeros_productos %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ productos.titulo }}</h5>
+                    <a href="#">
+                        <img src="{{ productos.imagen.url }}" width="262" height="180" class="card-img-top" alt="{{ productos.titulo }}">
+                    </a>
+                    <a href="#" class="btn btn-dark mt-3">Ver</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+                </div><div class="row"><div class="col-12"><hr></div>      
+            {% endif %}
+        {% endfor%}
+    </div>
+    <div class="container-fluid mb-5">
+        <h2 class="text-center my-3">MÁS PRODUCTOS</h2>      
+            {% for productos2 in segundos_productos %}
+                <p>
+                    <a href="#" class="link-dark"><b>{{ productos2.titulo }}</b></a> : {{ productos2.descripcion }}
+                </p>
+                <br>
+            {% endfor %}     
+    </div>
+</div>
 {% endblock %}
 
