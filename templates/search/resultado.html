@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <h2 class="text-center my-5">Productos: {{ request.GET.q }}</h2>
+        <ol class="list-group list-group-numbered listado">
+            {% for resultado in object_list %}
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <p class="ms-2 me-auto">                    
+                    <a href="#" class="link-dark">
+                        <b>{{ resultado.titulo }}</b>
+                    </a>
+                      : {{ resultado.descripcion }}
+                </p>
+            </li>
+            {% endfor %}
+        </ol>   
+    </div>
+
+{% endblock %}

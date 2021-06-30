@@ -22,9 +22,9 @@
                 Categorias
             </a>
             <ul class="dropdown-menu alert-dark" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item alert-link" href="#">Categoria 1</a></li>
-              <li><a class="dropdown-item alert-link" href="#">Categoria 2</a></li>
-              <li><a class="dropdown-item alert-link" href="#">Categoria 3</a></li>
+              {% for resultado in categorias %}
+                <li><a class="dropdown-item alert-link" href="/resultado/?q={{ resultado }}">{{ resultado.descripcion }}</a></li>
+              {% endfor %}            
             </ul>
           </li>
           <li class="nav-item me-5">
@@ -37,8 +37,8 @@
             <a class="nav-link" href="#">Nuevo Producto</a>
           </li>
         </ul>
-        <form  class="d-flex">
-            <input class="form-control me-2" type="search" name='q' placeholder="Search" aria-label="Search">
+        <form   method='GET' action="{% url 'productos:resultado' %}"  class="d-flex">
+            <input class="form-control me-2" type="search" name='q' placeholder="Search" aria-label="Search"  value="{{ request.GET.q }}">
             <button class="btn btn-outline-success me-3" type="submit">Search</button>
     </form>
       </div>
