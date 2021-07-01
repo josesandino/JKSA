@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="card mt-5 container gap-3">
+    <h5 class="card-header text-center">{{ producto.titulo }}</h5>
+    <div class="card-body me-3">
+        <img src="{{ producto.imagen.url }}" class="rounded float-start me-5" width="262" height="180" alt="{{ producto.titulo }}">   
+        <h5 class="card-title">{{ producto.categoria }}</h5>
+        <p class="card-text mb-5">{{ producto.descripcion }}</p>
+        <div class="d-flex justify-content-between">
+            <span>Precio: $ {{ producto.precio }}</span>
+            <a href="#" class="btn btn-success">Agregar al Carrito</a>
+        </div>
+    </div>
+  </div>
+{% endblock %}

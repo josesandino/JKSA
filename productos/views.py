@@ -32,6 +32,15 @@ def resultado(request, categoria_id):
     }
     return render(request, "search/resultado.html", context)
 
+def producto(request, producto_id):
+    categorias = Categoria.objects.all()
+    un_producto =get_object_or_404(Producto, id=producto_id)
+    context = {
+        'producto': un_producto,
+        'categorias': categorias,
+    }
+    return render(request, "product/producto.html", context)
+
 
 def categorias(request, categoria_id):
     categoria_id = get_object_or_404(Categoria, id=categoria_id)

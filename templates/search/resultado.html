@@ -7,7 +7,7 @@
             {% for resultado in object_list %}
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <p class="ms-2 me-auto">                    
-                    <a href="#" class="link-dark">
+                    <a href="/producto/{{resultado.id}}" class="link-dark">
                         <b>{{ resultado.titulo }}</b>
                     </a>
                       : {{ resultado.descripcion }}
