@@ -9,4 +9,6 @@ urlpatterns = [
     path('acerca/', views.acerca, name="acerca"),
     path('resultado/', SearchResultsView.as_view(), name="resultado"),
     path('producto/<int:producto_id>', views.producto, name="producto"),
+    path('producto_nuevo', views.crear_producto, name="producto_nuevo"),
+
 ]

@@ -1,34 +1,45 @@
-
-html { height: 100%; }
+html {
+  height: 100%;
+}
 body {
-    min-height:100%; 
-    position:relative; 
-    padding-bottom:[footer-height] 
+  min-height: 100%;
+  position: relative;
+  padding-bottom: [footer-height];
 }
-footer { 
-    display: flex;
-    justify-content: space-evenly;
-    position: absolute; 
-    left: 0 ; right: 0; bottom: 0; 
-    height:[footer-height] 
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: [footer-height];
 }
-footer, 
-header, 
+footer,
+header,
 nav {
-  color: darkgray!important;
+  color: darkgray !important;
   font-weight: bold;
 }
 @media (max-width: 768px) {
-  .abajo{
+  .abajo {
     padding-bottom: 15%;
     margin-bottom: 10%;
   }
-  footer{
+  footer {
     flex-direction: column;
     align-items: center;
-  }  
+  }
 }
-.listado{
+.listado {
   padding-bottom: 15%;
   margin-bottom: 10%;
+}
+.formulario {
+  padding-bottom: 2em!important;
+  margin-bottom: 5em!important;
+}
+
+.btn-rebel{
+ margin-left: 12em!important; 
 }

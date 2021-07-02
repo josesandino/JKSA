@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container pb-5">
+    <h3 class="text-center mb-3">Agregar un Producto</h3>
+    <form enctype="multipart/form-data" action="{% url 'productos:producto_nuevo' %}" method="post" class="fomulario">
+        {% csrf_token %}
+        <div class="mb-3 form-floating">
+            {{ form.titulo }} {{ form.titulo.errors }}
+            <label for="titulo">Título</label>
+        </div>
+        <div class="bloque row pb-5">
+            <div class="imagen col">
+                <div class="mb-3">
+                    <label for="imagen_input"  class="row ms-1 mb-3">IMAGEN</label>
+                    <div class="row">
+                        {{ form.imagen }} {{ form.imagen.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class="contenido-form col">
+                <div class="mb-3 form-floating">
+                    {{ form.categoria }} {{ form.categoria.errors }}
+                    <label for="categoria">Categoría</label>
+                </div>
+                <div class="visually-hidden">
+                   {{ form.fecha }} {{ form.fecha.errors }}
+                </div>
+    
+                <div class="mb-3 form-floating">
+                    {{ form.descripcion }} {{ form.descripcion.errors }}
+                    <label for="descripcion">Descripción</label>
+                </div>
+                <div class="row pb-3">
+                    <div class="col mb-3 form-floating">
+                        {{ form.precio }} {{ form.precio.errors }}
+                        <label for="precio" class="ms-2">Precio</label>
+                    </div>
+                    <div class="col">
+                        <input type="submit" class="btn btn-success btn-rebel p-3" value="CREAR">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

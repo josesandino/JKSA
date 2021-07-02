@@ -1,7 +1,11 @@
-from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.models import User
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.db import models
+from .forms import *
 from django.db.models import Q
 from django.views.generic.list import ListView
+from django.utils import timezone
 
 from .models import Categoria, Producto
 
@@ -41,6 +45,22 @@ def producto(request, producto_id):
     }
     return render(request, "product/producto.html", context)
 
+def crear_producto(request):
+    if request.method == "POST":
+        user = User.objects.get(username=request.user)
+        form = FormProducto(request.POST, request.FILES, 
+            initial={'fecha':timezone.now()}, 
+            instance=Producto(imagen=request.FILES['imagen'], 
+            moderador=user,            
+            ))
+        if form.is_valid():
+            form.save()
+            return redirect("productos:home")
+    else:
+        form = FormProducto(initial={'fecha':timezone.now()})
+        return render(request, "product/producto_nuevo.html", {
+            "form": form
+        })
 
 def categorias(request, categoria_id):
     categoria_id = get_object_or_404(Categoria, id=categoria_id)
