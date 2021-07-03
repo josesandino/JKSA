@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center mt-5">
+    <div class="container-sm col-4">
+  
+    <h3 class="card-header">Acceder a la Web</h3>
+  
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+  
+      <div class="row mt-5">
+        <div class="col-auto ms-5 ">
+          <label for="username">Usuario: </label>
+        </div>
+        <div class="col-auto ms-5">
+          {{ form.username }}
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-auto ms-5 ">
+          <label for="password">Contraseña: </label>
+        </div>
+        <div class="col-auto ms-3">
+          {{ form.password }}
+        </div>        
+      </div>
+  
+      <div>
+        <input type="submit" class="btn btn-success mt-5" value="ACCEDER" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -109,5 +109,8 @@ class SearchResultsView(ListView):
         )
         return object_list 
 
+def register(request):
+    pass
+
 
 
