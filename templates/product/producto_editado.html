@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container pb-5">
-    <h3 class="text-center mb-3">Agregar Producto</h3>
-    <form enctype="multipart/form-data" action="{% url 'productos:producto_nuevo' %}" method="post" class="fomulario">
+    <h3 class="text-center mb-3">Editar Producto</h3>
+    <form enctype="multipart/form-data" action="{% url 'productos:editar_producto' producto.id %}" method="post" class="fomulario">
         {% csrf_token %}
         <div class="mb-3 form-floating">
             {{ form.titulo }} {{ form.titulo.errors }}
@@ -12,7 +12,8 @@
             <div class="imagen col">
                 <div class="mb-3">
                     <label for="imagen_input"  class="row ms-1 mb-3">IMAGEN</label>
-                    <div class="row">
+                    <div class="">
+                        <img src="{{ producto.imagen.url }}" class="text-center" width="120" height="120" alt="{{ producto.titulo }}"><br> 
                         {{ form.imagen }} {{ form.imagen.errors }}
                     </div>
                 </div>
@@ -31,12 +32,15 @@
                     <label for="descripcion">Descripción</label>
                 </div>
                 <div class="row pb-3">
-                    <div class="col mb-3 form-floating">
+                    <div class="col-auto mb-3 me-5 form-floating">
                         {{ form.precio }} {{ form.precio.errors }}
                         <label for="precio" class="ms-2">Precio</label>
                     </div>
-                    <div class="col">
-                        <input type="submit" class="btn btn-success btn-rebel p-3" value="CREAR">
+                    <div class="col-auto">
+                        <div class="btn-group col-auto ">
+                            <input type="submit" class="btn btn-warning ms-5 me-3 p-3" value="EDITAR">
+                            <input type="submit" class="btn btn-danger ms-4 me-0 p-3" value="BORRAR">    
+                        </div>
                     </div>
                 </div>
             </div>

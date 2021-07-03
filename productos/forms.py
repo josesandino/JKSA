@@ -27,7 +27,6 @@ class FormProducto(forms.ModelForm):
             'descripcion': forms.Textarea(
                 attrs={
                     "class": "form-control",
-                    'rows':3,
                     "id": "descripcion",
                 }
             ),

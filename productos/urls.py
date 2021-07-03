@@ -10,5 +10,6 @@ urlpatterns = [
     path('resultado/', SearchResultsView.as_view(), name="resultado"),
     path('producto/<int:producto_id>', views.producto, name="producto"),
     path('producto_nuevo', views.crear_producto, name="producto_nuevo"),
+    path('editar_producto/<int:producto_id>', views.editar_producto, name="editar_producto"),
 
 ]

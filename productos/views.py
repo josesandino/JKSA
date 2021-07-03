@@ -58,9 +58,30 @@ def crear_producto(request):
             return redirect("productos:home")
     else:
         form = FormProducto(initial={'fecha':timezone.now()})
+        categorias = Categoria.objects.all()
         return render(request, "product/producto_nuevo.html", {
+            'categorias': categorias,
             "form": form
         })
+
+def editar_producto(request, producto_id):
+    producto_editado = get_object_or_404(Producto, id=producto_id)
+    if request.method == "POST":
+        user = User.objects.get(username=request.user)
+        producto_editado.moderador = user
+        form = FormProducto(data=request.POST, files=request.FILES, instance=producto_editado)
+        if form.is_valid():
+            form.save()
+            return redirect("productos:home")
+    else:
+        form = FormProducto(instance = producto_editado)
+        categorias = Categoria.objects.all()
+        context = {
+            'categorias': categorias,
+            "producto": producto_editado,
+            "form": form
+        }
+        return render(request, 'product/producto_editado.html', context)
 
 def categorias(request, categoria_id):
     categoria_id = get_object_or_404(Categoria, id=categoria_id)

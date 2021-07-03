@@ -9,8 +9,14 @@
         <h5 class="card-title">{{ producto.categoria }}</h5>
         <p class="card-text mb-5">{{ producto.descripcion }}</p>
         <div class="d-flex justify-content-between">
-            <span>Precio: $ {{ producto.precio }}</span>
-            <a href="#" class="btn btn-success">Agregar al Carrito</a>
+           <div class="col">
+                <span>Precio: $ {{ producto.precio }}</span>
+           </div>
+           <div class="col d-flex justify-content-end">
+                <a href="/editar_producto/{{ producto.id }}" class="btn btn-warning">Editar</a>
+                <a href="#" class="btn btn-danger ms-3">Borrar</a>
+                <a href="#" class="btn btn-success ms-3">Agregar al Carrito</a>
+           </div>
         </div>
     </div>
   </div>
