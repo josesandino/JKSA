@@ -83,6 +83,11 @@ def editar_producto(request, producto_id):
         }
         return render(request, 'product/producto_editado.html', context)
 
+def producto_borrado(request, producto_id):
+    borrado = get_object_or_404(Producto, id=producto_id)
+    borrado.delete()
+    return redirect("productos:home")
+
 def categorias(request, categoria_id):
     categoria_id = get_object_or_404(Categoria, id=categoria_id)
     categorias = Categoria.objects.all()
