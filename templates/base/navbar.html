@@ -34,9 +34,14 @@
           <li class="nav-item me-5">
             <a class="nav-link" href="#">Contacto</a>
           </li>
-          <li class="nav-item me-5">
-            <a class="nav-link" href="{{ nuevo }}">Nuevo Producto</a>
-          </li>
+          
+          {% for group in user.groups.all %}
+            {% if group.name == 'Moderador' %}
+              <li class="nav-item me-5">
+                <a class="nav-link" href="{{ nuevo }}">Nuevo Producto</a>
+              </li>
+            {% endif %}
+          {% endfor %}
         </ul>
         <form   method='GET' action="{% url 'productos:resultado' %}"  class="d-flex">
             <input class="form-control me-2" type="search" name='q' placeholder="Search" aria-label="Search"  value="{{ request.GET.q }}">

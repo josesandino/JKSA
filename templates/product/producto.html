@@ -13,8 +13,12 @@
                 <span>Precio: $ {{ producto.precio }}</span>
            </div>
            <div class="col d-flex justify-content-end">
-                <a href="/editar_producto/{{ producto.id }}" class="btn btn-warning">Editar</a>
-                <a href="/borrar_producto/{{ producto.id}}" class="btn btn-danger ms-3">Borrar</a>
+               {% for group in user.groups.all %}
+                    {% if group.name == 'Moderador' %}
+                         <a href="/editar_producto/{{ producto.id }}" class="btn btn-warning">Editar</a>
+                         <a href="/borrar_producto/{{ producto.id}}" class="btn btn-danger ms-3">Borrar</a>
+                    {% endif %}
+               {% endfor %}
                 <a href="#" class="btn btn-success ms-3">Agregar al Carrito</a>
            </div>
         </div>
