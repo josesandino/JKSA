@@ -22,14 +22,19 @@
         <div class="col-auto ms-5 ">
           <label for="password">Contraseña: </label>
         </div>
-        <div class="col-auto ms-3">
+        <div class="col-auto ms-4">
           {{ form.password }}
         </div>        
       </div>
-  
-      <div>
-        <input type="submit" class="btn btn-success mt-5" value="ACCEDER" />
-        <input type="hidden" name="next" value="{{ next }}" />
+       
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-auto me-1">
+          <input type="submit" class="btn btn-success px-5  " value="LOGIN" />
+          <input type="hidden" name="next" value="{{ next }}" /> 
+        </div>
+        <div class="col-auto">
+          <a class="btn btn-success mb-5 px-3" href="{% url 'usuarios:registro' %}">REGISTRARSE</a>
+        </div>
       </div>
     </form>
   </div>
