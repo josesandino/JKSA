@@ -1,18 +1,16 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 
-from productos.models import Producto
+from productos.models import Producto, Categoria
 from .models import Carrito
 
 def carrito(request):
+    categorias = Categoria.objects.all()
     carrito_obj, nuevo_carrito = Carrito.objects.new_or_get(request)
-    productos = carrito_obj.productos.all()
-    total = 0
-    for x in productos:
-        total += x.precio
-    print(total)
-    carrito_obj.total = total
-    carrito_obj.save()
-    return render(request, "carrito/carrito.html", {})
+    context = {
+        'carrito': carrito_obj,
+        'categorias': categorias,
+    }
+    return render(request, "carrito/carrito.html", context)
 
 def carrito_actualizado(request):
     producto_id = request.POST.get('producto_id')
@@ -24,3 +22,9 @@ def carrito_actualizado(request):
         else:
             carrito_obj.productos.add(item)
     return redirect('carritos:compra')
+
+
+def carrito_borrado(request, carrito_id):
+    borrado = get_object_or_404(Carrito, id=carrito_id)
+    borrado.delete()
+    return redirect("carritos:compra")

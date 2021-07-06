@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-auto">
                         <div class="btn-group col-auto ">
-                            <a href="/borrar_producto/{{ producto.id}}" class="btn btn-danger ms-5 me-3 p-3">BORRAR</a>  
+                            <a href="{% url 'productos:producto_borrado' producto.id}" class="btn btn-danger ms-5 me-3 p-3">BORRAR</a>  
                             <input type="submit" class="btn btn-warning ms-4 me-0 p-3" value="EDITAR">
                         </div>
                     </div>

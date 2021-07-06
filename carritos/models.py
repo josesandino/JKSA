@@ -30,7 +30,7 @@ class CarritoManager(models.Manager):
         return self.model.objects.create(usuario=user_obj)
 
 class Carrito(models.Model):
-    usuario            = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    usuario         = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     productos       = models.ManyToManyField(Producto, blank=True)
     total           = models.DecimalField(default=0.00, max_digits=50, decimal_places=2)
     updated         = models.DateTimeField(auto_now=True)

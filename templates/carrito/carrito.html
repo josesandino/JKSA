@@ -3,8 +3,49 @@
 
 {% block content %}
 
+<div class="container pb-5 mb-5">
     <h1 class="text-center">Carrito</h1>
+   
 
+    {% if carrito.productos.exists %}
+
+    <h3 class="container-sm pb-3">Usuario: {{ carrito.usuario }}</h3>
+    
+    <table class="table container-sm col-4">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for producto in carrito.productos.all %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ producto.titulo }}</td>
+            <td>USD {{ producto.precio }}</td>
+            <td>{% include 'carrito/actualizar_carrito.html' with producto=producto carrito=carrito %}        
+            </td>
+          </tr>
+            {% endfor %}
+          <tr>
+            <td  colspan="2"></td>
+            <td><b>Total</b> <span class="ps-2"> USD  {{ carrito.total }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-end my-5">
+        <a href="{% url 'carrito:carrito_borrado' carrito.id %}" class="btn btn-danger mb-5 ms-5 me-3 px-3">BORRAR CARRITO</a>  
+        <a href="#" class="btn btn-success mb-5 ms-5 me-3 px-3">FINALIZAR COMPRA</a> 
+    </div>
+
+    {% else %}
+    <p class="lead text-center">Su carrito esta vacío, favor elegir un producto.</p>
+    {% endif %}
+
+</div>
 {% endblock %}  
 
 
