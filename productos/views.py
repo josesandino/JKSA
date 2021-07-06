@@ -11,7 +11,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
 
-
+from carritos.models import Carrito
 from .models import Categoria, Producto
 
 def home(request):
@@ -44,9 +44,11 @@ def resultado(request, categoria_id):
 def producto(request, producto_id):
     categorias = Categoria.objects.all()
     un_producto =get_object_or_404(Producto, id=producto_id)
+    carrito_obj, nuevo_carrito = Carrito.objects.new_or_get(request)
     context = {
         'producto': un_producto,
         'categorias': categorias,
+        'carrito': carrito_obj,
     }
     return render(request, "product/producto.html", context)
 

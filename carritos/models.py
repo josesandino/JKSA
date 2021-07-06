@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.db.models.signals import m2m_changed
 
 from productos.models import Producto
 
@@ -39,3 +40,15 @@ class Carrito(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+def total_carrito(sender, instance, action, *args, **kwargs):
+    if action == 'post_add' or action == 'post_remove' or action == 'post_clear':
+        productos = instance.productos.all()
+        total = 0
+        for x in productos:
+            total += x.precio
+        instance.total = total
+        instance.save()
+
+m2m_changed.connect(total_carrito, sender=Carrito.productos.through)
