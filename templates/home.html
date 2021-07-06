@@ -6,7 +6,7 @@
 
 
 <div class="container pb-5">
-    <div class="row d-flex justify-content-around my-4 ">
+    <div class="row d-flex justify-content-around my-4">
         {% for productos in primeros_productos %}
             <div class="card abajo" style="width: 18rem;">
                 <div class="card-body text-center">
@@ -17,9 +17,6 @@
                     <a href="/producto/{{productos.id}}" class="btn btn-success px-5 mt-3">VER</a>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:3 %}
-                </div><div class="row"><div class="col-12"><hr></div>      
-            {% endif %}
         {% endfor%}
     </div>
     <div class="container-fluid mb-5 abajo">

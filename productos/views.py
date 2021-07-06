@@ -1,11 +1,16 @@
 from django.contrib.auth.models import User
+from django.http import request
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
-from django.db import models
+from django.urls import reverse
+from django.views.generic.base import TemplateView
 from .forms import *
 from django.db.models import Q
 from django.views.generic.list import ListView
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+
+
 
 from .models import Categoria, Producto
 
@@ -108,6 +113,4 @@ class SearchResultsView(ListView):
              Q(descripcion__icontains=query)
         )
         return object_list 
-
-
-
+ 

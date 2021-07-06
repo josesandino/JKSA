@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
+{% block content  %}
 <div class="card mt-5 container gap-3">
     <h5 class="card-header text-center">{{ producto.titulo }}</h5>
     <div class="card-body me-3">
@@ -19,7 +19,9 @@
                          <a href="/borrar_producto/{{ producto.id}}" class="btn btn-danger ms-3">Borrar</a>
                     {% endif %}
                {% endfor %}
+               
                 <a href="#" class="btn btn-success ms-3">Agregar al Carrito</a>
+             
            </div>
         </div>
     </div>
