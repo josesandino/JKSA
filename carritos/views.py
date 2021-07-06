@@ -15,11 +15,12 @@ def carrito(request):
     return render(request, "carrito/carrito.html", {})
 
 def carrito_actualizado(request):
-    producto_id = 2
-    item = Producto.objects.get(id=producto_id)
-    carrito_obj, nuevo_carrito = Carrito.objects.new_or_get(request)
-    if item in carrito_obj.productos.all():
-        carrito_obj.productos.remove(item)
-    else:
-        carrito_obj.productos.add(item)
+    producto_id = request.POST.get('producto_id')
+    if producto_id is not None:
+        item = Producto.objects.get(id=producto_id)
+        carrito_obj, nuevo_carrito = Carrito.objects.new_or_get(request)
+        if item in carrito_obj.productos.all():
+            carrito_obj.productos.remove(item)
+        else:
+            carrito_obj.productos.add(item)
     return redirect('carritos:compra')

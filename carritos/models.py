@@ -50,5 +50,4 @@ def total_carrito(sender, instance, action, *args, **kwargs):
             total += x.precio
         instance.total = total
         instance.save()
-
 m2m_changed.connect(total_carrito, sender=Carrito.productos.through)

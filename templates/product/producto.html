@@ -19,11 +19,7 @@
                          <a href="/borrar_producto/{{ producto.id}}" class="btn btn-danger ms-3">Borrar</a>
                     {% endif %}
                {% endfor %}
-               {% if object in carrito.productos.all %}
-               En el Carrito <button class="btn btn-danger ms-3">Eliminar ?</button>
-               {% else %}
-               <button class="btn btn-success ms-3">Agregar a carrito</button> 
-               {% endif %}           
+               {% include 'carrito/actualizar_carrito.html' with producto=producto carrito=carrito %}        
            </div>
         </div>
     </div>
