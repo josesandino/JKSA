@@ -2,23 +2,22 @@
 
 {% block content %}
 
-<div class="text-center mt-5">
-    <div class="container-sm col-4">
+<div  class="text-center mt-5 ">
+    <div class="container-sm col-4 mx-auto">
   
-    <h3 class="card-header">Acceder a la Web</h3>
+    <h3 class="card-header mx-auto">Acceder a la Web</h3>
   
     <form method="post" action="{% url 'login' %}">
-      {% csrf_token %}
-  
-      <div class="row mt-5">
+      {% csrf_token %}  
+      <div class="row mt-5  mx-sm-auto">
         <div class="col-auto ms-5 ">
           <label for="username">Usuario: </label>
         </div>
-        <div class="col-auto ms-5">
+        <div class="col-auto  ms-5">
           {{ form.username }}
         </div>
       </div>
-      <div class="row mt-5">
+      <div class="row mt-5 mx-sm-auto">
         <div class="col-auto ms-5 ">
           <label for="password">Contraseña: </label>
         </div>
@@ -28,8 +27,8 @@
       </div>
        
       <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-auto me-1">
-          <input type="submit" class="btn btn-success px-5  " value="LOGIN" />
+        <div class="col-auto me-1 ">
+          <input type="submit" class="btn btn-success px-5" value="LOGIN" />
           <input type="hidden" name="next" value="{{ next }}" /> 
         </div>
         <div class="col-auto">

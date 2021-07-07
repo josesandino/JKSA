@@ -15,11 +15,17 @@
            <div class="col d-flex justify-content-end">
                {% for group in user.groups.all %}
                     {% if group.name == 'Moderador' %}
-                         <a href="/editar_producto/{{ producto.id }}" class="btn btn-warning">Editar</a>
-                         <a href="/borrar_producto/{{ producto.id}}" class="btn btn-danger ms-3">Borrar</a>
+                         <a href="{% url 'productos:editar_producto' producto.id %}" class="btn btn-warning">Editar</a>
+                         <a href="{% url 'productos:producto_borrado' producto.id %}" class="btn btn-danger ms-3">Borrar</a>
                     {% endif %}
                {% endfor %}
-               {% include 'carrito/actualizar_carrito.html' with producto=producto carrito=carrito %}        
+               {% if not perms.productos.add_producto %}              
+                    {% if request.user.is_authenticated %}
+                         {% include 'carrito/actualizar_carrito.html' with producto=producto carrito=carrito %}
+                    {% else %}
+                         <a href="{% url 'login' %}" class="btn btn-success ms-3">Agregar al carrito</a>
+                    {% endif %}
+               {% endif %}        
            </div>
         </div>
     </div>
