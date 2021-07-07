@@ -8,26 +8,28 @@
 <div class="container pb-5">
     <div class="row d-flex justify-content-around my-4">
         {% for productos in primeros_productos %}
-            <div class="card abajo" style="width: 18rem;">
+            <div class="card  espaciado mb-sm-5" style="width: 18rem;">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ productos.titulo }}</h5>
                     <a href="#">
                         <img src="{{ productos.imagen.url }}" width="262" height="180" class="card-img-top" alt="{{ productos.titulo }}">
                     </a>
-                    <a href="/producto/{{productos.id}}" class="btn btn-success px-5 mt-3">VER</a>
+                    <a href="{% url 'productos:producto' productos.id %}" class="btn btn-success px-5 mt-3">VER</a>
                 </div>
             </div>
         {% endfor%}
     </div>
-    <div class="container-fluid mb-5 abajo">
-        <h2 class="text-center my-3">MÁS PRODUCTOS</h2>      
+    <div class="container-fluid mb-5">
+        <h2 class="text-center abajo my-3">MÁS PRODUCTOS</h2>      
             {% for productos2 in segundos_productos %}
                 <p>
-                    <a href="/producto/{{productos2.id}}" class="link-dark"><b>{{ productos2.titulo }}</b></a> : {{ productos2.descripcion }}
+                    <a href="{% url 'productos:producto' productos2.id %}" class="link-dark"><b>{{ productos2.titulo }}</b></a> : {{ productos2.descripcion }}
                 </p>
                 <br>
             {% endfor %}     
     </div>
 </div>
+<div class="abajo"></div>
+
 {% endblock %}
 

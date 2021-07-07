@@ -21,18 +21,35 @@ nav {
   color: darkgray !important;
   font-weight: bold;
 }
+#descripcion{
+  height: 100px;
+}
 @media (max-width: 768px) {
+  .espaciado{
+    margin-bottom: 8%;
+  }
   .abajo {
-    padding-bottom: 15%;
-    margin-bottom: 10%;
+    margin: 15%!important;
+    padding: 1%;
+  }
+  .abajo2 {
+    margin: 45%!important;
+    padding: 1%;
   }
   footer {
     flex-direction: column;
     align-items: center;
   }
-  .registro {
+  .centrado {
+    display: flex;
     flex-direction: column;
-    align-self: auto;
+  }
+  .fila {
+    display: flex;
+    flex-direction: row;
+  }
+  #descripcion{
+    height: 180px;
   }
 }
 .listado {
@@ -47,3 +64,4 @@ nav {
 .btn-rebel{
  margin-left: 12em!important; 
 }
+

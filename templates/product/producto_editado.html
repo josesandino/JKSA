@@ -31,15 +31,15 @@
                     {{ form.descripcion }} {{ form.descripcion.errors }}
                     <label for="descripcion">Descripción</label>
                 </div>
-                <div class="row pb-3">
-                    <div class="col-auto mb-3 me-5 form-floating">
+                <div class="row pb-3 fila">
+                    <div class="col-auto mb-3 me-5 form-floating fila">
                         {{ form.precio }} {{ form.precio.errors }}
                         <label for="precio" class="ms-2">Precio</label>
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto fila">
                         <div class="btn-group col-auto ">
                             <a href="{% url 'productos:producto_borrado' producto.id %}" class="btn btn-danger ms-5 me-3 p-3">BORRAR</a>  
-                            <input type="submit" class="btn btn-warning ms-4 me-0 p-3" value="EDITAR">
+                            <input type="submit" class=" col-auto btn btn-warning ms-4 me-0 p-3" value="EDITAR">
                         </div>
                     </div>
                 </div>
@@ -47,5 +47,6 @@
         </div>
     </form>
 </div>
+<div class="abajo"></div>
 
 {% endblock %}
